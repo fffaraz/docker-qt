@@ -3,7 +3,7 @@ MAINTAINER Faraz Fallahi <fffaraz@gmail.com>
 RUN \
 apt -y update && \
 apt -y upgrade && \
-apt -y install build-essential git iputils-ping python wget && \
+apt -y install build-essential git iputils-ping nano python wget && \
 apt -y autoremove && \
 apt -y autoclean && \
 cd /opt && \
