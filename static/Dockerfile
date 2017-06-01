@@ -12,7 +12,7 @@ tar xf qt-everywhere-opensource-src-5.9.0.tar.xz && \
 rm qt-everywhere-opensource-src-5.9.0.tar.xz && \
 cd qt-everywhere-opensource-src-5.9.0 && \
 ./configure -opensource -confirm-license -release -static \
--no-opengl -no-webkit -no-feature-accessibility -skip qtconnectivity \
+-no-opengl -no-feature-accessibility -skip qtconnectivity -skip qtwebkit \
 -nomake demos -nomake docs -nomake examples -nomake tests -nomake tools -no-compile-examples  && \
 make -j $(($(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1)+2)) && \
 make install && \
