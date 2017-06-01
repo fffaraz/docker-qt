@@ -6,4 +6,3 @@ https://wiki.qt.io/Building_Qt_5_from_Git
 
 fontconfig
 xkbcommon
-cmake
