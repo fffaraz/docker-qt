@@ -2,3 +2,4 @@ http://doc.qt.io/qt-5/configure-options.html
 http://doc.qt.io/qt-5/linux.html
 http://doc.qt.io/qt-5/linux-building.html
 http://doc.qt.io/qt-5/linux-requirements.html
+https://wiki.qt.io/Building_Qt_5_from_Git
