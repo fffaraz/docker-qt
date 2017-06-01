@@ -12,7 +12,7 @@ wget -q http://download.qt.io/official_releases/qt/5.9/5.9.0/single/qt-everywher
 tar xf qt-everywhere-opensource-src-5.9.0.tar.xz && \
 rm qt-everywhere-opensource-src-5.9.0.tar.xz && \
 cd qt-everywhere-opensource-src-5.9.0 && \
-./configure -opensource -confirm-license -release -static -nomake examples -nomake tests -nomake tools -no-compile-examples  && \
+./configure -opensource -confirm-license -release -static -nomake tests -nomake examples -no-compile-examples && \
 make -j $(($(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1)+2)) && \
 make install && \
 cd /opt && \
