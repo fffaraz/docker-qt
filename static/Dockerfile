@@ -3,7 +3,7 @@ MAINTAINER Faraz Fallahi <fffaraz@gmail.com>
 RUN \
 apt -y update && \
 apt -y upgrade && \
-apt -y install build-essential git iputils-ping nano python wget && \
+apt -y install build-essential git iputils-ping nano perl python wget && \
 apt -y install mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev && \
 apt -y install zlib1g-dev libssl-dev libmysqlclient-dev libsqlite3-dev libxslt-dev libxml2-dev libjpeg-dev libpng-dev libopus-dev && \
 apt -y autoremove && \
