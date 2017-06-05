@@ -1,0 +1,5 @@
+https://askubuntu.com/questions/656219/building-a-windows-executable-in-qt-on-a-linux-system
+http://silmor.de/qtstuff.cross.php
+https://wiki.qt.io/Cross_compiling_Mesa_for_Windows
+https://stackoverflow.com/questions/10934683/how-do-i-configure-qt-for-cross-compilation-from-linux-to-windows-target
+https://stackoverflow.com/questions/14170590/building-qt-5-on-linux-for-windows/14170591#14170591
