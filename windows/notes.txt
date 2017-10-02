@@ -3,3 +3,5 @@ http://silmor.de/qtstuff.cross.php
 https://wiki.qt.io/Cross_compiling_Mesa_for_Windows
 https://stackoverflow.com/questions/10934683/how-do-i-configure-qt-for-cross-compilation-from-linux-to-windows-target
 https://stackoverflow.com/questions/14170590/building-qt-5-on-linux-for-windows/14170591#14170591
+
+configure.bat -v -opensource -confirm-license -release -static -platform win32-g++ -c++std c++14 -static-runtime -no-opengl -sse2 -sse3 -optimize-size -nomake tests -nomake examples -no-icu -skip webengine -openssl-linked -I "C:\OpenSSL-Win32\include" -L "C:\OpenSSL-Win32\lib"
