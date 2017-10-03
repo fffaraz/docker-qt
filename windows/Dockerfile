@@ -3,7 +3,7 @@ MAINTAINER Faraz Fallahi <fffaraz@gmail.com>
 RUN \
 apt -y update && \
 apt -y upgrade && \
-apt -y install iputils-ping nano \
+apt -y install build-essential iputils-ping nano \
     autoconf automake autopoint bash bison bzip2 flex gettext \
     git g++ gperf intltool libffi-dev libgdk-pixbuf2.0-dev \
     libtool-bin libltdl-dev libssl-dev libxml-parser-perl make \
