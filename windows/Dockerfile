@@ -16,7 +16,8 @@ apt -y clean && \
 cd /opt && \
 git clone https://github.com/mxe/mxe.git && \
 cd mxe && \
-make -j $(($(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1)+2)) MXE_TARGETS='i686-w64-mingw32.static' qtbase && \
+NPROC=$(($(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1)+4)) && \
+make --jobs=$NPROC JOBS=$NPROC MXE_TARGETS='i686-w64-mingw32.static' qtbase && \
 /opt/mxe/usr/bin/i686-w64-mingw32.static-qmake-qt5 --version && \
 exit 0
 ENV PATH="${PATH}:/opt/mxe/usr/bin"
