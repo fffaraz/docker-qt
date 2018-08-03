@@ -1,5 +1,4 @@
-FROM ubuntu:18.04
-MAINTAINER Faraz Fallahi <fffaraz@gmail.com>
+FROM ubuntu:16.04
 RUN \
 apt -y update && \
 apt -y upgrade && \
@@ -15,7 +14,7 @@ apt -y autoclean && \
 apt -y clean && \
 cd /opt && \
 git clone https://github.com/mxe/mxe.git && \
-cd mxe && \
+cd /opt/mxe && \
 NPROC=$(($(nproc)+4)) && \
 make --jobs=$NPROC JOBS=$NPROC MXE_TARGETS='i686-w64-mingw32.static' qtbase qtmultimedia && \
 ln -s /opt/mxe/usr/bin/i686-w64-mingw32.static-qmake-qt5 /usr/bin/qmake && \
