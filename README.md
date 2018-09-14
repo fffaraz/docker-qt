@@ -1,4 +1,4 @@
-# docker-qt
+# Docker-Qt
 Qt for Docker
 
 * Linux Dynamically Linked
