@@ -1,4 +1,5 @@
 FROM ubuntu:16.04
+ENTRYPOINT ["/bin/bash"]
 RUN \
 apt -y update && \
 apt -y upgrade && \
