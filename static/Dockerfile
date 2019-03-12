@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER Faraz Fallahi <fffaraz@gmail.com>
+ENTRYPOINT ["/bin/bash"]
 RUN \
 apt -y update && \
 apt -y upgrade && \
