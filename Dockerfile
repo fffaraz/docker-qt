@@ -1,4 +1,5 @@
 FROM ubuntu:latest
+ENTRYPOINT ["/bin/bash"]
 RUN \
 apt update && \
 apt -y upgrade && \
