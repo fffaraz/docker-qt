@@ -1,1 +1,0 @@
-configure.bat -v -opensource -confirm-license -release -static -platform win32-g++ -c++std c++14 -static-runtime -no-opengl -sse2 -sse3 -optimize-size -nomake tests -nomake examples -no-icu -skip webengine -openssl-linked OPENSSL_LIBS="-lssleay32 -llibeay32" -I "C:\OpenSSL-Win32\include" -L "C:\OpenSSL-Win32\lib"
