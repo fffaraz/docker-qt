@@ -9,15 +9,17 @@ docker run --rm -it -v $(pwd):/app fffaraz/qt
 
 * Linux Statically Linked
 ```
-cd static
+cd linux-static
 docker build --force-rm -t fffaraz/qt:static .
 docker run --rm -it -v $(pwd):/app fffaraz/qt:static
 ```
 
 * Windows Cross-compiled Statically Linked
 ```
-cd windows
-docker build --force-rm -t fffaraz/qt:windows .
-docker run --rm -it -v $(pwd):/app fffaraz/qt:windows
-cd /app && qmake && make -j $(nproc)
+cd windows-x64
+docker build --force-rm -t fffaraz/qt:windows64 .
+docker run --rm -it -v $(pwd):/app fffaraz/qt:windows64
+cd /app
+qmake
+make -j $(nproc)
 ```
