@@ -9,7 +9,7 @@ RUN \
         autoconf automake autopoint bash bison bzip2 flex gettext \
         git g++ gperf intltool libffi-dev libgdk-pixbuf2.0-dev \
         libtool-bin libltdl-dev libssl-dev libxml-parser-perl lzip make \
-        openssl p7zip-full patch perl pkg-config python ruby scons \
+        openssl p7zip-full lzip patch perl pkg-config python ruby scons \
         sed unzip wget xz-utils \
         g++-multilib libc6-dev-i386 && \
     apt -y autoremove && \
