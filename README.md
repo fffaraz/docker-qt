@@ -13,7 +13,7 @@ docker build --force-rm -f Dockerfile.static -t fffaraz/qt:static .
 docker run --rm -it -v $(pwd):/app fffaraz/qt:static
 ```
 
-* Windows Cross-compiled Statically Linked
+* Windows 64bit Cross-compiled Statically Linked
 ```
 docker build --force-rm -f Dockerfile.win64s -t fffaraz/qt:win64s .
 docker run --rm -it -v $(pwd):/app fffaraz/qt:win64s
