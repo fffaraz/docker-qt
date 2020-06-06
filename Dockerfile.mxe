@@ -5,7 +5,7 @@ RUN \
     export DEBIAN_FRONTEND=noninteractive && \
     apt -y update && \
     apt -y upgrade && \
-    apt -y install
+    apt -y install \
         autoconf automake autopoint bash bison build-essential bzip2 flex \
         g++ g++-multilib gettext git gperf intltool iputils-ping libc6-dev-i386 \
         libffi-dev libgdk-pixbuf2.0-dev libltdl-dev libssl-dev libtool-bin \
