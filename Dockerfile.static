@@ -5,10 +5,12 @@ RUN \
     export DEBIAN_FRONTEND=noninteractive && \
     apt -y update && \
     apt -y upgrade && \
-    apt -y install build-essential cmake gdb git iputils-ping nano perl python valgrind wget lzip \
-        mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev \
-        zlib1g-dev libssl-dev libnss3-dev libmysqlclient-dev libsqlite3-dev libxslt-dev libxml2-dev libjpeg-dev libpng-dev libopus-dev \
-        libxcursor-dev libxcb1-dev libxcb-xkb-dev libx11-xcb-dev libxrender-dev libxi-dev libxcb-xinerama0-dev && \
+    apt -y install \
+        build-essential cmake freeglut3-dev gdb git iputils-ping libgl1-mesa-dev \
+        libglu1-mesa-dev libjpeg-dev libmysqlclient-dev libnss3-dev libopus-dev \
+        libpng-dev libsqlite3-dev libssl-dev libx11-xcb-dev libxcb-xinerama0-dev \
+        libxcb-xkb-dev libxcb1-dev libxcursor-dev libxi-dev libxml2-dev libxrender-dev \
+        libxslt-dev lzip mesa-common-dev nano perl python valgrind wget zlib1g-dev && \
     apt -y autoremove && \
     apt -y autoclean && \
     apt -y clean && \
