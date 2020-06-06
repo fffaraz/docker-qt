@@ -15,7 +15,7 @@ docker run --rm -it -v $(pwd):/app fffaraz/qt:static
 
 * Windows Cross-compiled Statically Linked
 ```
-docker build --force-rm -f Dockerfile.win64s -t fffaraz/qt:static .
+docker build --force-rm -f Dockerfile.win64s -t fffaraz/qt:win64s .
 docker run --rm -it -v $(pwd):/app fffaraz/qt:win64s
 cd /app
 qmake
