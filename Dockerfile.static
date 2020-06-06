@@ -23,7 +23,7 @@ RUN \
     tar xf qt-everywhere-opensource-src-5.15.0.tar.xz && \
     rm qt-everywhere-opensource-src-5.15.0.tar.xz && \
     cd qt-everywhere-opensource-src-5.15.0 && \
-    ./configure -opensource -confirm-license -release -static -nomake tests -nomake examples -no-compile-examples -skip qtwebengine && \
+    ./configure -opensource -confirm-license -release -static -nomake tests -nomake examples -skip qtwebengine && \
     make -j $(($(nproc)+4)) && \
     make install && \
     cd /opt && \
