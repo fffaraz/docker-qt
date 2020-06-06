@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euxo pipefail
 
+docker pull ubuntu:latest
+
 # Ubuntu dynamically linked
 docker build --force-rm -f Dockerfile -t fffaraz/qt:latest .
 
