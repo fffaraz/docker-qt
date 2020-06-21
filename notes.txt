@@ -1,6 +1,9 @@
 https://github.com/darkmattercoder/qt-build
-
+---
 echo 'override MXE_PLUGIN_DIRS += plugins/gcc7' >> settings.mk
-
+---
 qt5
 qtbase qtcharts qtdeclarative qtquickcontrols qtquickcontrols2
+---
+https://github.com/qt/qtbase/blob/dev/src/network/kernel/qurltlds_p.h
+---
