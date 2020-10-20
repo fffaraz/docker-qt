@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 ENTRYPOINT ["/bin/bash"]
 
 RUN \
@@ -10,7 +10,8 @@ RUN \
         libglu1-mesa-dev libjpeg-dev libmysqlclient-dev libnss3-dev libopus-dev \
         libpng-dev libsqlite3-dev libssl-dev libx11-xcb-dev libxcb-xinerama0-dev \
         libxcb-xkb-dev libxcb1-dev libxcursor-dev libxi-dev libxml2-dev libxrender-dev \
-        libxslt-dev lzip mesa-common-dev nano perl python valgrind wget zlib1g-dev && \
+        libxslt-dev lzip mesa-common-dev nano perl python valgrind wget zlib1g-dev \
+        '^libxcb.*-dev' libxkbcommon-dev libxkbcommon-x11-dev && \
     apt -y autoremove && \
     apt -y autoclean && \
     apt -y clean && \
@@ -28,7 +29,7 @@ RUN \
 RUN \
     cd /opt/qt-everywhere-src-5.15.0 && \
     ./configure -opensource -confirm-license -release -static -nomake tests -nomake examples -skip qtwebengine \
-    -qt-zlib -qt-libjpeg -qt-libpng -bundled-xcb-xinput -qt-freetype -qt-pcre -qt-harfbuzz && \
+    -qt-zlib -qt-libjpeg -qt-libpng -xcb -xcb-xlib -bundled-xcb-xinput -qt-freetype -qt-pcre -qt-harfbuzz && \
     make -j $(($(nproc)+4)) && \
     make install && \
     cd /opt && \
