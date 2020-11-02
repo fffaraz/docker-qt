@@ -24,7 +24,7 @@ RUN \
     wget -q http://download.qt.io/official_releases/qt/5.15/5.15.0/single/qt-everywhere-src-5.15.0.tar.xz && \
     tar xf qt-everywhere-src-5.15.0.tar.xz && \
     rm qt-everywhere-src-5.15.0.tar.xz && \
-    cd qt-everywhere-src-5.15.0
+    exit 0
 
 RUN \
     cd /opt/qt-everywhere-src-5.15.0 && \
