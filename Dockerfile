@@ -7,7 +7,7 @@ RUN \
     apt -y install \
         bash build-essential ccache clang clang-format clang-tidy cmake cppcheck curl doxygen gdb git gperf iputils-ping \
         libboost-all-dev libfcgi-dev libgl1-mesa-dev libjemalloc-dev libjemalloc2 libmlpack-dev libtbb-dev libyaml-cpp-dev \
-        linux-tools-generic nano nasm ninja-build openssh-server python3-pip qt5-default spawn-fcgi valgrind wget && \
+        linux-tools-generic nano nasm ninja-build openssh-server python3-pip qt5-default spawn-fcgi tini valgrind wget && \
     apt -y autoremove && \
     apt -y autoclean && \
     apt -y clean && \
@@ -32,4 +32,4 @@ RUN \
     echo 'root:root' | chpasswd && \
     exit 0
 
-ENTRYPOINT ["/usr/sbin/sshd", "-D", "-e"]
+ENTRYPOINT ["/usr/bin/tini", "--", "/usr/sbin/sshd", "-D", "-e"]
