@@ -6,10 +6,10 @@ RUN \
     apt update && \
     apt -y upgrade && \
     apt -y install \
-        bash build-essential ccache clang clang-format clang-tidy cmake cppcheck curl doxygen gdb git gperf iputils-ping \
+        bash build-essential ccache clang clang-format clang-tidy cmake cppcheck curl doxygen gdb git gnupg gperf iputils-ping \
         libboost-all-dev libfcgi-dev libgl1-mesa-dev libjemalloc-dev libjemalloc2 libmlpack-dev libtbb-dev libyaml-cpp-dev \
         linux-tools-generic nano nasm ninja-build openssh-server pkg-config python3-pip qt5-default spawn-fcgi sudo tini \
-        valgrind wget && \
+        unzip valgrind wget zip && \
     apt-get install -y --no-install-recommends libx11-xcb-dev libxcb-dri3-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-shape0-dev libxcb-sync-dev libxcb-util-dev libxcb-xfixes0-dev libxcb-xinerama0-dev libxcb-xkb-dev xorg-dev && \
     apt -y autoremove && \
     apt -y autoclean && \
