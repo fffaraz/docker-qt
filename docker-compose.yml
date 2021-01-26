@@ -4,6 +4,7 @@ services:
   worker:
     build: .
     image: fffaraz/qt:latest
+    hostname: worker
     volumes:
       - ./volumes/repo:/root/repo
       - ./volumes/conan:/root/.conan/data
