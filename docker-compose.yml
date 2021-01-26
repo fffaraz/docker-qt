@@ -1,13 +1,15 @@
-version: '3.5'
+version: '3.6'
 
 services:
   worker:
     build: .
     image: fffaraz/qt:latest
     hostname: worker
+    tmpfs:
+      - /run
+      - /tmp
     volumes:
       - ./volumes/repo:/root/repo
       - ./volumes/conan:/root/.conan/data
-      - ./volumes/tmp:/tmp
     ports:
       - "2222:22"
