@@ -16,7 +16,7 @@ RUN \
 
 RUN \
     pip3 install autoenv autopep8 cmake-format conan conan_package_tools setuptools && \
-    conan profile update settings.compiler.libcxx=libstdc++11 default && \
+#   conan profile update settings.compiler.libcxx=libstdc++11 default && \
     exit 0
 
 RUN \
