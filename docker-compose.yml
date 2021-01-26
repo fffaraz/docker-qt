@@ -17,7 +17,6 @@ services:
         soft: 20000
         hard: 40000
     tmpfs:
-      - /run
       - /tmp
     volumes:
       - ./volumes/repo:/root/repo
