@@ -1,5 +1,4 @@
 FROM ubuntu:latest
-ENTRYPOINT ["/usr/sbin/sshd", "-D", "-e"]
 
 RUN \
     export DEBIAN_FRONTEND=noninteractive && \
@@ -27,3 +26,5 @@ RUN \
     sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
     echo 'root:root' | chpasswd && \
     exit 0
+
+ENTRYPOINT ["/usr/sbin/sshd", "-D", "-e"]
