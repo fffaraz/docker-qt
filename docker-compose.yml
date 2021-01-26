@@ -1,7 +1,7 @@
 version: '3.5'
 
 services:
-  ubuntu:
+  worker:
     build: .
     image: fffaraz/qt:latest
     volumes:
@@ -9,4 +9,4 @@ services:
       - ./volumes/conan:/root/.conan/data
       - ./volumes/tmp:/tmp
     ports:
-      - 2222:22
+      - "2222:22"
