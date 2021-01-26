@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-ENTRYPOINT ["/usr/sbin/sshd", "-D"]
+ENTRYPOINT ["/usr/sbin/sshd", "-D", "-e"]
 
 RUN \
     export DEBIAN_FRONTEND=noninteractive && \
