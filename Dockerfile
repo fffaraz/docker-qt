@@ -32,4 +32,5 @@ RUN \
     echo 'root:root' | chpasswd && \
     exit 0
 
-ENTRYPOINT ["/usr/bin/tini", "--", "/usr/sbin/sshd", "-D", "-e"]
+ENTRYPOINT ["/usr/bin/tini", "--"]
+CMD ["/usr/sbin/sshd", "-D", "-e"]
