@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 
 RUN \
+    set -euxo pipefail
     export DEBIAN_FRONTEND=noninteractive && \
     apt update && \
     apt -y upgrade && \
@@ -17,10 +18,12 @@ RUN \
     exit 0
 
 RUN \
+    set -euxo pipefail
     pip3 install autoenv autopep8 cmake-format conan conan_package_tools setuptools && \
     exit 0
 
 RUN \
+    set -euxo pipefail
     conan profile new default --detect  && \
     conan profile update settings.compiler.libcxx=libstdc++11 default && \
     conan remote list && \
@@ -28,6 +31,7 @@ RUN \
     exit 0
 
 RUN \
+    set -euxo pipefail
     mkdir -p /var/run/sshd && \
     mkdir -p /root/.ssh && \
     sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
