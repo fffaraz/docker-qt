@@ -1,10 +1,21 @@
-version: '3.6'
+version: "3.6"
 
 services:
   worker:
     build: .
     image: fffaraz/qt:latest
     hostname: worker
+    privileged: true
+    tty: true
+    stdin_open: true
+    cap_add:
+        - SYS_PTRACE
+        - SYS_ADMIN
+    ulimits:
+      nproc: 655353
+      nofile:
+        soft: 20000
+        hard: 40000
     tmpfs:
       - /run
       - /tmp
