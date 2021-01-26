@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  ubuntu:
+    build: .
+    image: fffaraz/qt:latest
+    volumes:
+      - ./volumes/repo:/root/repo
+      - ./volumes/conan:/root/.conan/data
+      - ./volumes/tmp:/tmp
+    ports:
+      - 2222:22
