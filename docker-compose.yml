@@ -16,10 +16,10 @@ services:
       nofile:
         soft: 20000
         hard: 40000
+    tmpfs:
+      - /tmp:exec,mode=1777
     volumes:
       - ./volumes/repo:/root/repo
       - ./volumes/conan:/root/.conan/data
-      - type: tmpfs
-        target: /tmp
     ports:
       - "2222:22"
