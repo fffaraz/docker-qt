@@ -4,7 +4,7 @@ C++ Qt compile environment for Docker (Dynamically Linked, Statically Linked, an
 * Linux Dynamically Linked
 ```
 docker build --force-rm -f Dockerfile -t fffaraz/qt:latest .
-docker run --rm -it -v $(pwd):/app fffaraz/qt:latest
+docker run --rm -it -v $(pwd):/app fffaraz/qt:latest /bin/bash
 ```
 
 * Linux Statically Linked

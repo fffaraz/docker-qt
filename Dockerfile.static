@@ -1,5 +1,4 @@
 FROM ubuntu:20.04
-ENTRYPOINT ["/bin/bash"]
 
 RUN \
     export DEBIAN_FRONTEND=noninteractive && \
@@ -37,3 +36,4 @@ RUN \
     exit 0
 
 ENV PATH="${PATH}:/usr/local/Qt-5.15.2/bin"
+ENTRYPOINT ["/bin/bash"]
