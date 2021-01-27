@@ -20,8 +20,9 @@ RUN \
 RUN \
     set -eux && \
     pip3 install autoenv autopep8 cmake-format conan conan_package_tools setuptools && \
-    pip3 install cppclean flawfinder lizard && \
+    pip3 install cppclean flawfinder lizard pygments && \
     pip3 install dlib ipython jupyter matplotlib nose numpy pandas pymc3 scikit-learn scipy seaborn sympy && \
+    pip3 install PyPortfolioOpt && \
     exit 0
 
 RUN \
