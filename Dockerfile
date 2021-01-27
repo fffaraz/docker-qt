@@ -20,9 +20,7 @@ RUN \
 RUN \
     set -eux && \
     pip3 --version && \
-    easy_install -U pip && \
-    pip3 --version && \
-    pip3 install --upgrade pip setuptools wheel && \
+    sudo pip3 install --upgrade pip setuptools wheel && \
     pip3 --version && \
     exit 0
 
