@@ -20,7 +20,13 @@ RUN \
 RUN \
     set -eux && \
     pip3 --version && \
+    pip3 install --upgrade pip
     pip3 install --upgrade pip setuptools wheel && \
+    pip3 --version && \
+    exit 0
+
+RUN \
+    set -eux && \
     pip3 --version && \
     pip3 install --upgrade autoenv autopep8 cmake-format conan conan_package_tools && \
     pip3 install --upgrade cppclean flawfinder lizard pygments && \
