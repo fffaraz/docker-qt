@@ -27,6 +27,8 @@ RUN \
 RUN \
     set -eux && \
     pip3 --version && \
+    pip3 install --upgrade pip setuptools wheel && \
+    pip3 --version && \
     pip3 install --upgrade autoenv autopep8 cmake-format conan conan_package_tools && \
     pip3 install --upgrade cppclean flawfinder lizard pygments && \
     pip3 install --upgrade dlib ipython jupyter matplotlib nose numpy pandas pymc3 scikit-learn scipy seaborn sympy && \
