@@ -20,6 +20,7 @@ RUN \
 
 RUN \
     set -eux && \
+    python3 --version && \
     python3 -m pip install -U pip && \
     pip3 --version && \
     pip3 install --upgrade pip setuptools wheel && \
