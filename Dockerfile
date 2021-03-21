@@ -75,7 +75,7 @@ RUN \
     mkdir -p /root/.ssh && \
     sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
     sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
-    useradd --system --no-log-init --create-home --home-dir /home/myuser --gid root --groups sudo --uid 1001 --shell /bin/bash myuser && \
+    useradd --system --no-log-init --create-home --home-dir /home/myuser --gid root --groups sudo --uid 1000 --shell /bin/bash myuser && \
     echo 'root:root' | chpasswd && \
     echo 'myuser:myuser' | chpasswd && \
     ssh-keygen -A && \
