@@ -78,12 +78,11 @@ RUN \
     useradd --system --no-log-init --create-home --home-dir /home/myuser --gid root --groups sudo --uid 1001 --shell /bin/bash myuser && \
     echo 'root:root' | chpasswd && \
     echo 'myuser:myuser' | chpasswd && \
+    ssh-keygen -A && \
     exit 0
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["/usr/sbin/sshd", "-D", "-e"]
 
-USER myuser
-WORKDIR /home/myuser
-
-RUN sudo ssh-keygen -A
+# USER myuser
+# WORKDIR /home/myuser
