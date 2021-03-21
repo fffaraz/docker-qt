@@ -37,13 +37,32 @@ RUN \
     pip3 --version && \
     pip3 install --upgrade pip setuptools wheel && \
     pip3 --version && \
-    pip3 install --upgrade autoenv autopep8 cmake-format conan conan_package_tools meson && \
-    pip3 install --upgrade cppclean flawfinder lizard pygments pybind11 GitPython pexpect subunit Jinja2 pylint clang-format CLinters && \
-    pip3 install --upgrade cltk dlib ipython jupyter matplotlib nose numba numpy pandas pymc3 requests scikit-learn scipy seaborn sympy quandl textblob nltk yfinance && \
+    pip3 install --upgrade autoenv autopep8 cmake-format clang-format conan conan_package_tools meson && \
+    pip3 install --upgrade cppclean flawfinder lizard pygments pybind11 GitPython pexpect subunit Jinja2 pylint CLinters && \
+    pip3 install --upgrade cltk && \
+    pip3 install --upgrade ipython && \
+    pip3 install --upgrade jupyter && \
+    pip3 install --upgrade matplotlib && \
+    pip3 install --upgrade nose && \
+    pip3 install --upgrade numba && \
+    pip3 install --upgrade numpy && \
+    pip3 install --upgrade pandas && \
+    pip3 install --upgrade pymc3 && \
+    pip3 install --upgrade requests && \
+    pip3 install --upgrade scikit-learn && \
+    pip3 install --upgrade scipy && \
+    pip3 install --upgrade seaborn && \
+    pip3 install --upgrade sympy && \
+    pip3 install --upgrade quandl && \
+    pip3 install --upgrade textblob && \
+    pip3 install --upgrade nltk && \
+    pip3 install --upgrade yfinance && \
     pip3 install --upgrade PyPortfolioOpt && \
     exit 0
 
 # --ignore-installed
+
+RUN pip3 install --upgrade dlib
 
 RUN \
     pip3 install --upgrade pystan holidays lunarcalendar convertdate && \
