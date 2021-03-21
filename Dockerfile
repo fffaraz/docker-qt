@@ -6,7 +6,7 @@ RUN \
     apt-get update && \
     apt-get -y upgrade && \
     apt-get -y install \
-        apt-rdepends bash build-essential ccache clang clang-format clang-tidy cmake cppcheck curl doxygen diffstat gawk gdb git gnupg gperf iputils-ping \
+        aptitude apt-rdepends bash build-essential ccache clang clang-tidy cmake cppcheck curl doxygen diffstat gawk gdb git gnupg gperf iputils-ping \
         libboost-all-dev libfcgi-dev libgfortran5 libgl1-mesa-dev libjemalloc-dev libjemalloc2 libmlpack-dev libtbb-dev libssl-dev libyaml-cpp-dev \
         linux-tools-generic nano nasm ninja-build openjdk-11-jdk openssh-server openssl pkg-config python3 qt5-default spawn-fcgi \
         sudo tini unzip valgrind wget zip texinfo gcc-multilib chrpath socat cpio xz-utils debianutils libegl1-mesa \
@@ -15,8 +15,7 @@ RUN \
         libxcb-render0-dev libxcb-shape0-dev libxcb-sync-dev libxcb-util-dev libxcb-xfixes0-dev libxcb-xinerama0-dev libxcb-xkb-dev xorg-dev && \
     apt-get -y autoremove && \
     apt-get -y autoclean && \
-    apt-get -y clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    apt-get -y clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     exit 0
 
 RUN \
@@ -37,7 +36,7 @@ RUN \
     pip3 install --upgrade pip setuptools wheel && \
     pip3 --version && \
     pip3 install --upgrade autoenv autopep8 cmake-format conan conan_package_tools meson && \
-    pip3 install --upgrade cppclean flawfinder lizard pygments pybind11 GitPython pexpect subunit Jinja2 pylint && \
+    pip3 install --upgrade cppclean flawfinder lizard pygments pybind11 GitPython pexpect subunit Jinja2 pylint clang-format CLinters && \
     pip3 install --upgrade cltk dlib ipython jupyter matplotlib nose numba numpy pandas pymc3 requests scikit-learn scipy seaborn sympy quandl textblob nltk yfinance && \
     pip3 install --upgrade PyPortfolioOpt && \
     exit 0
