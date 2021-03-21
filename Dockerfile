@@ -41,13 +41,14 @@ RUN \
     pip3 install --upgrade PyPortfolioOpt && \
     exit 0
 
-#RUN pip3 install --upgrade --ignore-installed cltk
 RUN pip3 install --upgrade dlib
 
 RUN \
     pip3 install --upgrade pystan holidays lunarcalendar convertdate && \
     pip3 install --upgrade fbprophet && \
     exit 0
+
+#RUN pip3 install --upgrade --ignore-installed cltk
 
 #RUN \
 #    set -eux && \
