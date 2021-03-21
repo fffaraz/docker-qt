@@ -86,4 +86,4 @@ CMD ["/usr/sbin/sshd", "-D", "-e"]
 USER myuser
 WORKDIR /home/myuser
 
-RUN ssh-keygen -A
+RUN sudo ssh-keygen -A
