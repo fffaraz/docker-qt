@@ -15,7 +15,8 @@ RUN \
         libxcb-render0-dev libxcb-shape0-dev libxcb-sync-dev libxcb-util-dev libxcb-xfixes0-dev libxcb-xinerama0-dev libxcb-xkb-dev xorg-dev && \
     apt-get -y autoremove && \
     apt-get -y autoclean && \
-    apt-get -y clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    apt-get -y clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     exit 0
 
 RUN \
