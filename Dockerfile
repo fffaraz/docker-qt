@@ -12,7 +12,8 @@ RUN \
         sudo tini unzip valgrind wget zip texinfo gcc-multilib chrpath socat cpio xz-utils debianutils libegl1-mesa \
         patch perl tar rsync bc libelf-dev libssl-dev libsdl1.2-dev xterm mesa-common-dev whois \
         libx11-xcb-dev libxcb-dri3-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-render-util0-dev \
-        libxcb-render0-dev libxcb-shape0-dev libxcb-sync-dev libxcb-util-dev libxcb-xfixes0-dev libxcb-xinerama0-dev libxcb-xkb-dev xorg-dev && \
+        libxcb-render0-dev libxcb-shape0-dev libxcb-sync-dev libxcb-util-dev libxcb-xfixes0-dev libxcb-xinerama0-dev libxcb-xkb-dev xorg-dev \
+        libconfuse-dev libnl-3-dev libnl-route-3-dev libncurses-dev dh-autoreconf && \
     apt-get -y autoremove && \
     apt-get -y autoclean && \
     apt-get -y clean && \
@@ -75,7 +76,8 @@ RUN \
     mkdir -p /root/.ssh && \
     sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
     sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
-    useradd --system --no-log-init --create-home --home-dir /home/myuser --gid root --groups sudo --uid 1000 --shell /bin/bash myuser && \
+    groupadd -g 1000 myuser && \
+    useradd --system --no-log-init --create-home --home-dir /home/myuser --gid myuser --groups sudo --uid 1000 --shell /bin/bash myuser && \
     echo 'root:root' | chpasswd && \
     echo 'myuser:myuser' | chpasswd && \
     ssh-keygen -A && \
