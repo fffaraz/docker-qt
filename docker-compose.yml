@@ -19,7 +19,7 @@ services:
     tmpfs:
       - /tmp:exec,mode=1777
     volumes:
-      - ./volumes/repo:/root/repo
-      - ./volumes/conan:/root/.conan/data
+      - ./volumes/repo:/home/myuser/repo
+      - ./volumes/conan:/home/myuser/.conan/data
     ports:
       - "2222:22"
