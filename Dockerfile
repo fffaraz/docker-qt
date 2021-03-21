@@ -39,7 +39,6 @@ RUN \
     pip3 --version && \
     pip3 install --upgrade autoenv autopep8 cmake-format clang-format conan conan_package_tools meson && \
     pip3 install --upgrade cppclean flawfinder lizard pygments pybind11 GitPython pexpect subunit Jinja2 pylint CLinters && \
-    pip3 install --upgrade cltk && \
     pip3 install --upgrade ipython && \
     pip3 install --upgrade jupyter && \
     pip3 install --upgrade matplotlib && \
@@ -60,7 +59,7 @@ RUN \
     pip3 install --upgrade PyPortfolioOpt && \
     exit 0
 
-# --ignore-installed
+# --ignore-installed cltk
 
 RUN pip3 install --upgrade dlib
 
