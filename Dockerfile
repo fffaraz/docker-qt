@@ -41,7 +41,7 @@ RUN \
     pip3 install --upgrade PyPortfolioOpt && \
     exit 0
 
-RUN pip3 install --upgrade --ignore-installed cltk
+#RUN pip3 install --upgrade --ignore-installed cltk
 RUN pip3 install --upgrade dlib
 
 RUN \
