@@ -1,7 +1,8 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Install apt packages
 RUN \
     set -eux && \
     apt-get update && \
@@ -21,6 +22,7 @@ RUN \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     exit 0
 
+# Install python pip
 RUN \
     set -eux && \
     python3 --version && \
@@ -33,6 +35,7 @@ RUN \
     pip3 --version && \
     exit 0
 
+# Install python pip packages
 RUN \
     set -eux && \
     pip3 --version && \
@@ -41,20 +44,21 @@ RUN \
     pip3 install --upgrade autoenv autopep8 cmake-format clang-format conan conan_package_tools meson && \
     pip3 install --upgrade cppclean flawfinder lizard pygments pybind11 GitPython pexpect subunit Jinja2 pylint CLinters && \
     pip3 install --upgrade ipython jupyter matplotlib nose numba numpy pandas pymc3 PyWavelets requests scikit-learn scipy seaborn sympy quandl textblob nltk yfinance && \
-    pip3 install --upgrade PyPortfolioOpt && \
     exit 0
 
+RUN pip3 install --upgrade PyPortfolioOpt
 RUN pip3 install --upgrade dlib
 RUN pip3 install --upgrade frida frida-tools
+#RUN pip3 install --upgrade --ignore-installed cltk
 
+# Install FB Prophet
 # https://github.com/facebook/prophet/blob/master/python/requirements.txt
 RUN \
     pip3 install --upgrade Cython cmdstanpy==0.9.68 pystan~=2.19.1.1 numpy pandas matplotlib LunarCalendar convertdate holidays setuptools-git python-dateutil tqdm && \
     pip3 install --upgrade fbprophet && \
     exit 0
 
-#RUN pip3 install --upgrade --ignore-installed cltk
-
+# Install vcpkg
 #RUN \
 #    set -eux && \
 #    cd /root && \
@@ -65,6 +69,7 @@ RUN \
 #    vcpkg install pybind11 && \
 #    exit 0
 
+# Install conan
 RUN \
     set -eux && \
     conan profile new default --detect  && \
@@ -73,6 +78,7 @@ RUN \
     conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan && \
     exit 0
 
+# Setup ssh
 RUN \
     set -eux && \
     mkdir -p /var/run/sshd && \
@@ -86,6 +92,7 @@ RUN \
     ssh-keygen -A && \
     exit 0
 
+# Install cuda
 RUN \
     set -eux && \
     wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin && \
