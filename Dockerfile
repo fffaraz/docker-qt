@@ -47,6 +47,7 @@ RUN \
 RUN pip3 install --upgrade dlib
 RUN pip3 install --upgrade frida frida-tools
 
+# https://github.com/facebook/prophet/blob/master/python/requirements.txt
 RUN \
     pip3 install --upgrade Cython cmdstanpy==0.9.68 pystan~=2.19.1.1 numpy pandas matplotlib LunarCalendar convertdate holidays setuptools-git python-dateutil tqdm && \
     pip3 install --upgrade fbprophet && \
@@ -83,6 +84,16 @@ RUN \
     echo 'root:root' | chpasswd && \
     echo 'myuser:myuser' | chpasswd && \
     ssh-keygen -A && \
+    exit 0
+
+RUN \
+    set -eux && \
+    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin && \
+    mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 && \
+    apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub && \
+    add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /" && \
+    apt-get update && \
+    apt-get -y install cuda && \
     exit 0
 
 ENV IGNORE_CC_MISMATCH=1
