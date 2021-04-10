@@ -48,7 +48,7 @@ RUN pip3 install --upgrade dlib
 RUN pip3 install --upgrade frida frida-tools
 
 RUN \
-    pip3 install --upgrade Cython cmdstanpy pystan numpy pandas matplotlib LunarCalendar convertdate holidays setuptools-git python-dateutil tqdm && \
+    pip3 install --upgrade Cython cmdstanpy==0.9.68 pystan~=2.19.1.1 numpy pandas matplotlib LunarCalendar convertdate holidays setuptools-git python-dateutil tqdm && \
     pip3 install --upgrade fbprophet && \
     exit 0
 
