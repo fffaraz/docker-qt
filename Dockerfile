@@ -1,8 +1,9 @@
 FROM ubuntu:latest
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN \
     set -eux && \
-    export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get -y upgrade && \
     apt-get -y install \
@@ -13,7 +14,7 @@ RUN \
         patch perl tar rsync bc libelf-dev libssl-dev libsdl1.2-dev xterm mesa-common-dev whois \
         libx11-xcb-dev libxcb-dri3-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-render-util0-dev \
         libxcb-render0-dev libxcb-shape0-dev libxcb-sync-dev libxcb-util-dev libxcb-xfixes0-dev libxcb-xinerama0-dev libxcb-xkb-dev xorg-dev \
-        libconfuse-dev libnl-3-dev libnl-route-3-dev libncurses-dev dh-autoreconf && \
+        libconfuse-dev libnl-3-dev libnl-route-3-dev libncurses-dev dh-autoreconf freeglut3 freeglut3-dev libglfw3-dev && \
     apt-get -y autoremove && \
     apt-get -y autoclean && \
     apt-get -y clean && \
@@ -44,6 +45,7 @@ RUN \
     exit 0
 
 RUN pip3 install --upgrade dlib
+RUN pip3 install --upgrade frida frida-tools
 
 RUN \
     pip3 install --upgrade pystan holidays lunarcalendar convertdate && \
@@ -82,6 +84,10 @@ RUN \
     echo 'myuser:myuser' | chpasswd && \
     ssh-keygen -A && \
     exit 0
+
+ENV IGNORE_CC_MISMATCH=1
+ENV PATH=$PATH:/usr/local/cuda/bin
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["/usr/sbin/sshd", "-D", "-e"]
