@@ -49,6 +49,7 @@ RUN \
 RUN pip3 install --upgrade PyPortfolioOpt
 RUN pip3 install --upgrade dlib
 RUN pip3 install --upgrade frida frida-tools
+RUN pip3 install --upgrade vaex
 #RUN pip3 install --upgrade --ignore-installed cltk
 
 # Install FB Prophet
