@@ -15,11 +15,25 @@ RUN \
         patch perl tar rsync bc libelf-dev libssl-dev libsdl1.2-dev xterm mesa-common-dev whois software-properties-common \
         libx11-xcb-dev libxcb-dri3-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-render-util0-dev \
         libxcb-render0-dev libxcb-shape0-dev libxcb-sync-dev libxcb-util-dev libxcb-xfixes0-dev libxcb-xinerama0-dev libxcb-xkb-dev xorg-dev \
-        libconfuse-dev libnl-3-dev libnl-route-3-dev libncurses-dev dh-autoreconf freeglut3 freeglut3-dev libglfw3-dev && \
+        libconfuse-dev libnl-3-dev libnl-route-3-dev libncurses-dev dh-autoreconf freeglut3 freeglut3-dev libglfw3-dev \
+        apt-transport-https g++ && \
     apt-get -y autoremove && \
     apt-get -y autoclean && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    exit 0
+
+# Install Bazel
+RUN \
+    curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > /etc/apt/trusted.gpg.d/bazel.gpg && \
+    echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list && \
+    apt-get update && \
+    apt-get -y install bazel && \
+    apt-get -y autoremove && \
+    apt-get -y autoclean && \
+    apt-get -y clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    bazel --version && \
     exit 0
 
 # Install python pip
