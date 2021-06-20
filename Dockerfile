@@ -36,6 +36,21 @@ RUN \
     bazel --version && \
     exit 0
 
+# Install cuda
+RUN \
+    set -eux && \
+    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin && \
+    mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 && \
+    apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub && \
+    add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /" && \
+    apt-get update && \
+    apt-get -y install cuda && \
+    apt-get -y autoremove && \
+    apt-get -y autoclean && \
+    apt-get -y clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    exit 0
+
 # Install python pip
 RUN \
     set -eux && \
@@ -105,17 +120,6 @@ RUN \
     echo 'root:root' | chpasswd && \
     echo 'myuser:myuser' | chpasswd && \
     ssh-keygen -A && \
-    exit 0
-
-# Install cuda
-RUN \
-    set -eux && \
-    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin && \
-    mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 && \
-    apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub && \
-    add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /" && \
-    apt-get update && \
-    apt-get -y install cuda && \
     exit 0
 
 ENV IGNORE_CC_MISMATCH=1
