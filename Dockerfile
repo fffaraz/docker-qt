@@ -91,6 +91,9 @@ RUN \
     conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan && \
     exit 0
 
+# Install buildifier
+Run go get github.com/bazelbuild/buildtools/buildifier
+
 # Setup ssh
 RUN \
     set -eux && \
