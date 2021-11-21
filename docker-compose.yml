@@ -4,6 +4,7 @@ services:
   worker:
     build: .
     image: fffaraz/qt:latest
+    restart: always
     hostname: worker
     privileged: true
     tty: true
