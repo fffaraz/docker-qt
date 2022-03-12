@@ -1,4 +1,4 @@
-# Docker-Qt
+# Qt docker development environment
 C++ Qt compile environment for Docker (Dynamically Linked, Statically Linked, and Cross-compiled to Windows)
 
 * Linux Dynamically Linked
