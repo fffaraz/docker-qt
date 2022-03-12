@@ -1,6 +1,8 @@
 FROM ubuntu:20.04
 ENTRYPOINT ["/bin/bash"]
 
+#RUN echo 'Acquire::http { Proxy "http://192.168.1.2:3142"; };' >> /etc/apt/apt.conf.d/00proxy
+
 RUN \
     export DEBIAN_FRONTEND=noninteractive && \
     apt -y update && \
