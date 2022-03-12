@@ -1,4 +1,5 @@
 https://github.com/darkmattercoder/qt-build
+https://github.com/miurahr/aqtinstall
 ---
 echo 'override MXE_PLUGIN_DIRS += plugins/gcc7' >> settings.mk
 ---
