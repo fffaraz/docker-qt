@@ -22,20 +22,20 @@ RUN \
 RUN \
     set -eux && \
     cd /opt && \
-    wget -q http://download.qt.io/official_releases/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz && \
-    tar xf qt-everywhere-src-5.15.2.tar.xz && \
-    rm qt-everywhere-src-5.15.2.tar.xz && \
+    wget -q http://download.qt.io/official_releases/qt/5.15/5.15.3/single/qt-everywhere-src-5.15.3.tar.xz && \
+    tar xf qt-everywhere-src-5.15.3.tar.xz && \
+    rm qt-everywhere-src-5.15.3.tar.xz && \
     exit 0
 
 RUN \
-    cd /opt/qt-everywhere-src-5.15.2 && \
+    cd /opt/qt-everywhere-src-5.15.3 && \
     ./configure -opensource -confirm-license -release -static -nomake tests -nomake examples -skip qtwebengine \
     -qt-zlib -qt-libjpeg -qt-libpng -xcb -qt-freetype -qt-pcre -qt-harfbuzz && \
     make -j $(($(nproc)+4)) && \
     make install && \
     cd /opt && \
-    rm -rf qt-everywhere-src-5.15.2 && \
+    rm -rf qt-everywhere-src-5.15.3 && \
     exit 0
 
-ENV PATH="${PATH}:/usr/local/Qt-5.15.2/bin"
+ENV PATH="${PATH}:/usr/local/Qt-5.15.3/bin"
 ENTRYPOINT ["/bin/bash"]
