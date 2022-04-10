@@ -18,3 +18,10 @@ RUN \
     apt -y clean && \
     rm -rf /var/lib/apt/lists/* && \
     exit 0
+
+RUN \
+    cd /opt && \
+    git clone https://github.com/mxe/mxe.git && \
+    exit 0
+
+ENV PATH="${PATH}:/opt/mxe/usr/bin"
