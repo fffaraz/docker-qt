@@ -12,7 +12,7 @@ RUN \
         libpng-dev libsqlite3-dev libssl-dev libx11-xcb-dev libxcb-xinerama0-dev \
         libxcb-xkb-dev libxcb1-dev libxcursor-dev libxi-dev libxml2-dev libxrender-dev \
         libxslt-dev lzip mesa-common-dev nano perl python valgrind wget zlib1g-dev \
-        '^libxcb.*-dev' libxkbcommon-dev libxkbcommon-x11-dev && \
+        '^libxcb.*-dev' libxkbcommon-dev libxkbcommon-x11-dev libgl-dev && \
     apt -y autoremove && \
     apt -y autoclean && \
     apt -y clean && \
