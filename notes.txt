@@ -11,3 +11,5 @@ https://github.com/qt/qtbase/blob/dev/src/network/kernel/qurltlds_p.h
 ln -s /opt/mxe/usr/bin/x86_64-w64-mingw32.static-cmake /usr/bin/cmake
 ENV CMAKE_PREFIX_PATH="/opt/mxe/usr/x86_64-w64-mingw32.static/qt5"
 ---
+docker run --rm -it fffaraz/qt:mxe
+---
