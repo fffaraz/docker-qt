@@ -12,7 +12,7 @@ RUN \
         g++ g++-multilib gettext git gperf intltool iputils-ping libc6-dev-i386 \
         libffi-dev libgdk-pixbuf2.0-dev libltdl-dev libssl-dev libtool-bin \
         libxml-parser-perl lzip make nano openssl p7zip-full patch perl \
-        pkg-config ruby scons sed unzip wget xz-utils \
+        pkg-config ruby scons sed unzip wget xz-utils libgl-dev \
         python3 python3-mako python3-pkg-resources python3-setuptools python-is-python3 \
         && \
     apt -y autoremove && \
