@@ -3,6 +3,11 @@ FROM fffaraz/qt:mxe
 RUN \
     cd /opt/mxe && \
     make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtbase && \
-    ln -s /opt/mxe/usr/bin/x86_64-w64-mingw32.static-qmake-qt6 /usr/bin/qmake && \
+    exit 0
+
+ENV PATH="${PATH}:/opt/mxe/usr/x86_64-w64-mingw32.static/qt6/bin"
+
+RUN \
+    echo $PATH &&\
     qmake --version && \
     exit 0

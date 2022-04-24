@@ -3,6 +3,4 @@ FROM fffaraz/qt:mxe
 RUN \
     cd /opt/mxe && \
     make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='i686-w64-mingw32.shared' qt6-qtbase && \
-    ln -s /opt/mxe/usr/bin/i686-w64-mingw32.shared-qmake-qt6 /usr/bin/qmake && \
-    qmake --version && \
     exit 0
