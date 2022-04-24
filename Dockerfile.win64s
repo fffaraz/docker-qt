@@ -8,7 +8,7 @@ RUN \
 ENV PATH="${PATH}:/opt/mxe/usr/x86_64-w64-mingw32.static/qt6/bin"
 
 RUN \
-    set -x && \
+    set -eux && \
     echo $PATH && \
     ln -s /opt/mxe/usr/bin/x86_64-w64-mingw32.static-cmake /usr/local/bin/cmake && \
     cmake --version && \
