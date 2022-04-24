@@ -2,8 +2,15 @@ FROM fffaraz/qt:mxe
 
 RUN \
     cd /opt/mxe && \
-    NPROC=$(($(nproc)+4)) && \
-    make --jobs=$NPROC JOBS=$NPROC MXE_TARGETS='x86_64-w64-mingw32.static' qtbase && \
-    ln -s /opt/mxe/usr/bin/x86_64-w64-mingw32.static-qmake-qt5 /usr/bin/qmake && \
+    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtbase && \
+    exit 0
+
+ENV PATH="${PATH}:/opt/mxe/usr/x86_64-w64-mingw32.static/qt6/bin"
+
+RUN \
+    set -eux && \
+    echo $PATH && \
+    ln -s /opt/mxe/usr/bin/x86_64-w64-mingw32.static-cmake /usr/local/bin/cmake && \
+    cmake --version && \
     qmake --version && \
     exit 0
