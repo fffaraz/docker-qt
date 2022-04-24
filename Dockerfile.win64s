@@ -8,6 +8,6 @@ RUN \
 ENV PATH="${PATH}:/opt/mxe/usr/x86_64-w64-mingw32.static/qt6/bin"
 
 RUN \
-    echo $PATH &&\
+    echo $PATH && \
     qmake --version && \
     exit 0
