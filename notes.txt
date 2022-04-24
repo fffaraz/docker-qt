@@ -12,4 +12,5 @@ ln -s /opt/mxe/usr/bin/x86_64-w64-mingw32.static-cmake /usr/bin/cmake
 ENV CMAKE_PREFIX_PATH="/opt/mxe/usr/x86_64-w64-mingw32.static/qt5"
 ---
 docker run --rm -it fffaraz/qt:mxe
+docker run --rm -it fffaraz/qt:win64s
 ---
