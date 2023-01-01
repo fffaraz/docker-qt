@@ -4,3 +4,13 @@ RUN \
     cd /opt/mxe && \
     make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.shared' qt6-qtbase && \
     exit 0
+
+ENV PATH="${PATH}:/opt/mxe/usr/x86_64-w64-mingw32.shared/qt6/bin"
+
+RUN \
+    set -eux && \
+    echo $PATH && \
+    ln -s /opt/mxe/usr/bin/x86_64-w64-mingw32.shared-cmake /usr/local/bin/cmake && \
+    cmake --version && \
+    qmake --version && \
+    exit 0
