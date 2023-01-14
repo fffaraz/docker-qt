@@ -96,7 +96,7 @@ RUN \
     exit 0
 
 # Install buildifier
-Run go install github.com/bazelbuild/buildtools/buildifier
+Run go install github.com/bazelbuild/buildtools/buildifier@latest
 
 # Setup ssh
 RUN \
