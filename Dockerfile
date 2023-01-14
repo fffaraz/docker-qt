@@ -81,9 +81,10 @@ RUN \
     git clone https://github.com/Microsoft/vcpkg.git && \
     cd vcpkg && \
     ./bootstrap-vcpkg.sh && \
-    ./vcpkg integrate install && \
-    vcpkg install pybind11 && \
     exit 0
+#    ./vcpkg integrate install && \
+#    vcpkg install pybind11 && \
+#    exit 0
 
 # Install conan
 RUN \
