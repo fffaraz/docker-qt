@@ -4,7 +4,7 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install apt packages and Bazel and Cuda
+# Install apt packages and Bazel and CUDA (# https://developer.nvidia.com/cuda-downloads)
 RUN \
     set -eux && \
     apt-get update && \
@@ -29,7 +29,7 @@ RUN \
     wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb && \
     dpkg -i cuda-keyring_1.0-1_all.deb && \
     apt-get update && \
-    apt-get -yq install cuda && \ # https://developer.nvidia.com/cuda-downloads
+    apt-get -yq install cuda && \
     apt-get -yq autoremove && \
     apt-get -yq autoclean && \
     apt-get -yq clean && \
