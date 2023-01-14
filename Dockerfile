@@ -8,8 +8,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN \
     set -eux && \
     apt-get update && \
-    apt-get -y upgrade && \
-    apt-get -y install \
+    apt-get -yq upgrade && \
+    apt-get -yq install \
         aptitude apt-rdepends bash build-essential ccache clang clang-tidy cmake cppcheck curl doxygen diffstat gawk gdb git gnupg gperf iputils-ping \
         libboost-all-dev libfcgi-dev libgfortran5 libgl1-mesa-dev libjemalloc-dev libjemalloc2 libmlpack-dev libtbb-dev libssl-dev libyaml-cpp-dev \
         linux-tools-generic nano nasm ninja-build openjdk-11-jdk openssh-server openssl pkg-config python3 qt5-default spawn-fcgi \
@@ -19,20 +19,20 @@ RUN \
         libxcb-render0-dev libxcb-shape0-dev libxcb-sync-dev libxcb-util-dev libxcb-xfixes0-dev libxcb-xinerama0-dev libxcb-xkb-dev xorg-dev \
         libconfuse-dev libnl-3-dev libnl-route-3-dev libncurses-dev dh-autoreconf freeglut3 freeglut3-dev libglfw3-dev \
         apt-transport-https g++ graphviz xdot golang-go && \
-    curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > /etc/apt/trusted.gpg.d/bazel.gpg && \
-    echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list && \
+    go --version && \
+    ssh-keygen -A && \
+    curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > /usr/share/keyrings/bazel.gpg && \
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/bazel.gpg] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list && \
     apt-get update && \
-    apt-get -y install bazel && \
+    apt-get -yq install bazel && \
     bazel --version && \
-    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin && \
-    mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 && \
-    apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub && \
-    add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /" && \
+    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb && \
+    dpkg -i cuda-keyring_1.0-1_all.deb && \
     apt-get update && \
-    apt-get -y install cuda && \
-    apt-get -y autoremove && \
-    apt-get -y autoclean && \
-    apt-get -y clean && \
+    apt-get -yq install cuda && \ # https://developer.nvidia.com/cuda-downloads
+    apt-get -yq autoremove && \
+    apt-get -yq autoclean && \
+    apt-get -yq clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     exit 0
 
@@ -64,25 +64,25 @@ RUN pip3 install --upgrade PyPortfolioOpt
 RUN pip3 install --upgrade dlib
 RUN pip3 install --upgrade frida frida-tools
 RUN pip3 install --upgrade vaex
-#RUN pip3 install --upgrade --ignore-installed cltk
+RUN pip3 install --upgrade --ignore-installed cltk
 
 # Install FB Prophet
 # https://github.com/facebook/prophet/blob/master/python/requirements.txt
 RUN \
-    pip3 install --upgrade Cython cmdstanpy==0.9.68 pystan~=2.19.1.1 numpy pandas matplotlib LunarCalendar convertdate holidays setuptools-git python-dateutil tqdm && \
+    pip3 install --upgrade Cython cmdstanpy pystan numpy pandas matplotlib LunarCalendar convertdate holidays setuptools-git python-dateutil tqdm && \
     pip3 install --upgrade fbprophet && \
     exit 0
 
 # Install vcpkg
-#RUN \
-#    set -eux && \
-#    cd /root && \
-#    git clone https://github.com/Microsoft/vcpkg.git && \
-#    cd vcpkg && \
-#    ./bootstrap-vcpkg.sh && \
-#    ./vcpkg integrate install && \
-#    vcpkg install pybind11 && \
-#    exit 0
+RUN \
+    set -eux && \
+    cd /root && \
+    git clone https://github.com/Microsoft/vcpkg.git && \
+    cd vcpkg && \
+    ./bootstrap-vcpkg.sh && \
+    ./vcpkg integrate install && \
+    vcpkg install pybind11 && \
+    exit 0
 
 # Install conan
 RUN \
@@ -107,7 +107,6 @@ RUN \
     useradd --system --no-log-init --create-home --home-dir /home/myuser --gid myuser --groups sudo --uid 1000 --shell /bin/bash myuser && \
     echo 'root:root' | chpasswd && \
     echo 'myuser:myuser' | chpasswd && \
-    ssh-keygen -A && \
     exit 0
 
 ENV IGNORE_CC_MISMATCH=1
