@@ -4,7 +4,7 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install apt packages and Bazel and CUDA (# https://developer.nvidia.com/cuda-downloads)
+# Install apt packages and Bazel and CUDA (https://developer.nvidia.com/cuda-downloads)
 RUN \
     set -eux && \
     apt-get update && \
