@@ -58,21 +58,21 @@ RUN \
     pip3 --version && \
     pip3 install --upgrade autoenv autopep8 cmake-format clang-format conan conan_package_tools meson && \
     pip3 install --upgrade cppclean flawfinder lizard pygments pybind11 GitPython pexpect subunit Jinja2 pylint CLinters && \
-    pip3 install --upgrade ipython jupyter matplotlib nose numba numpy pandas pymc3 PyWavelets requests scikit-learn scipy seaborn sympy quandl textblob nltk yfinance && \
     exit 0
 
-RUN pip3 install --upgrade PyPortfolioOpt
-RUN pip3 install --upgrade dlib
-RUN pip3 install --upgrade frida frida-tools
-RUN pip3 install --upgrade vaex
-RUN pip3 install --upgrade --ignore-installed cltk
+# RUN pip3 install --upgrade ipython jupyter matplotlib nose numba numpy pandas pymc3 PyWavelets requests scikit-learn scipy seaborn sympy quandl textblob nltk yfinance && \
+# RUN pip3 install --upgrade PyPortfolioOpt
+# RUN pip3 install --upgrade dlib
+# RUN pip3 install --upgrade frida frida-tools
+# RUN pip3 install --upgrade vaex
+# RUN pip3 install --upgrade --ignore-installed cltk
 
 # Install FB Prophet
 # https://github.com/facebook/prophet/blob/master/python/requirements.txt
-RUN \
-    pip3 install --upgrade Cython cmdstanpy pystan numpy pandas matplotlib LunarCalendar convertdate holidays setuptools-git python-dateutil tqdm && \
-    pip3 install --upgrade fbprophet && \
-    exit 0
+# RUN \
+#     pip3 install --upgrade Cython cmdstanpy pystan numpy pandas matplotlib LunarCalendar convertdate holidays setuptools-git python-dateutil tqdm && \
+#     pip3 install --upgrade fbprophet && \
+#     exit 0
 
 # Install vcpkg
 RUN \
