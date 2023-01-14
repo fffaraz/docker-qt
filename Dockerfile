@@ -11,14 +11,15 @@ RUN \
     apt-get -yq upgrade && \
     apt-get -yq install \
         aptitude apt-rdepends bash build-essential ccache clang clang-tidy cmake cppcheck curl doxygen diffstat gawk gdb git gnupg gperf iputils-ping \
-        libboost-all-dev libfcgi-dev libgfortran5 libgl1-mesa-dev libjemalloc-dev libjemalloc2 libmlpack-dev libtbb-dev libssl-dev libyaml-cpp-dev \
+        libboost-all-dev libfcgi-dev libgfortran5 libgl1-mesa-dev libjemalloc-dev libjemalloc2 libmlpack-dev libtbb-dev libyaml-cpp-dev \
         linux-tools-generic nano nasm ninja-build openjdk-11-jdk openssh-server openssl pkg-config python3 python-is-python3 spawn-fcgi \
         sudo tini unzip valgrind wget zip texinfo gcc-multilib chrpath socat cpio xz-utils debianutils libegl1-mesa \
         patch perl tar rsync bc libelf-dev libssl-dev libsdl1.2-dev xterm mesa-common-dev whois software-properties-common \
         libx11-xcb-dev libxcb-dri3-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-render-util0-dev \
         libxcb-render0-dev libxcb-shape0-dev libxcb-sync-dev libxcb-util-dev libxcb-xfixes0-dev libxcb-xinerama0-dev libxcb-xkb-dev xorg-dev \
         libconfuse-dev libnl-3-dev libnl-route-3-dev libncurses-dev dh-autoreconf freeglut3 freeglut3-dev libglfw3-dev \
-        apt-transport-https g++ graphviz xdot golang-go qt6-base-dev libglx-dev && \
+        apt-transport-https g++ graphviz xdot golang-go qt6-base-dev libglx-dev libx11-dev libmd4c-dev libmd4c-html0-dev \
+        mesa-utils libglu1-mesa-dev libglew-dev libglm-dev libao-dev libmpg123-dev libclang-dev && \
     go version && \
     ssh-keygen -A && \
     curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > /usr/share/keyrings/bazel.gpg && \
