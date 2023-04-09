@@ -26,13 +26,13 @@ RUN \
     wget -q https://download.qt.io/official_releases/qt/5.15/5.15.9/single/qt-everywhere-opensource-src-5.15.9.tar.xz && \
     tar xf qt-everywhere-opensource-src-5.15.9.tar.xz && \
     rm qt-everywhere-opensource-src-5.15.9.tar.xz && \
-    cd /opt/qt-everywhere-opensource-src-5.15.9 && \
+    cd /opt/qt-everywhere-src-5.15.9 && \
     ./configure -opensource -confirm-license -release -static -nomake tests -nomake examples -skip qtwebengine \
     -qt-zlib -qt-libjpeg -qt-libpng -xcb -qt-freetype -qt-pcre -qt-harfbuzz && \
     make -j $(nproc) && \
     make install && \
     cd /opt && \
-    rm -rf qt-everywhere-opensource-src-5.15.9 && \
+    rm -rf qt-everywhere-src-5.15.9 && \
     exit 0
 
 ENV PATH="${PATH}:/usr/local/Qt-5.15.9/bin"
