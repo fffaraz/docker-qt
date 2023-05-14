@@ -1,24 +1,29 @@
 name: Build
 
 on:
-  push:
-    tags:
-    - '**'
-    branches:
-    - master
-
-permissions:
-  id-token: write
-  contents: read
-  packages: write
+  workflow_call:
+    inputs:
+      file:
+        required: true
+        type: string
+        description: Dockerfile to use
+      tag:
+        required: true
+        type: string
+        description: Docker tag to generate
+      load:
+        required: false
+        type: boolean
+        default: false
+        description: Load docker image
 
 env:
   REGISTRY: ghcr.io
   IMAGE: ${{ github.repository_owner }}/qt
 
 jobs:
-  static:
-    name: Static
+  build:
+    name: build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -41,17 +46,18 @@ jobs:
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE }}
         flavor: |
-          latest=true
+          latest=false
         tags: |
-          type=ref,event=branch
-          type=ref,event=tag
+          type=raw,value=${{ inputs.tag }}
+          type=ref,event=tag,enable=${{ inputs.tag == 'latest' }}
 
     - name: Build
       uses: docker/build-push-action@v4
       with:
-        file: Dockerfile
+        file: ${{ inputs.file }}
         sbom: true
         provenance: true
+        load: ${{ inputs.load || 'false' }}
         push: ${{ github.event_name != 'pull_request' }}
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}

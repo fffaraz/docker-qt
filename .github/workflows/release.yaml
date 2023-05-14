@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+    - '**'
+    branches:
+    - master
+
+permissions:
+  id-token: write
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - name: static
+          file: Dockerfile.static
+          tag: static
+        - name: dynamic
+          file: Dockerfile
+          tag: latest
+    name: ${{ matrix.name }}
+    uses: ./.github/workflows/build.yaml
+    with:
+      file: ${{ matrix.file }}
+      tag: ${{ matrix.tag }}
