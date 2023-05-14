@@ -24,7 +24,33 @@ jobs:
         - name: dynamic
           file: Dockerfile
           tag: latest
+        - name: MXE
+          file: Dockerfile.mxe
+          tag: mxe
     name: ${{ matrix.name }}
+    uses: ./.github/workflows/build.yaml
+    with:
+      file: ${{ matrix.file }}
+      tag: ${{ matrix.tag }}
+  mxe_win:
+    needs: [build]
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - name: Win32 Static
+          file: Dockerfile.win32s
+          tag: win32s
+        - name: Win32 Dynamic
+          file: Dockerfile.win32d
+          tag: win32d
+        - name: Win64 Static
+          file: Dockerfile.win64s
+          tag: win64s
+        - name: Win64 Dynamic
+          file: Dockerfile.win64d
+          tag: win64d
+    name: MXE ${{ matrix.name }}
     uses: ./.github/workflows/build.yaml
     with:
       file: ${{ matrix.file }}
