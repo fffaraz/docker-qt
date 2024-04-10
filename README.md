@@ -21,3 +21,12 @@ cd /app
 qmake
 make -j $(nproc)
 ```
+
+* Windows 64bit Cross-compiled Statically Linked with Qt6 Submodules (Multimedia, Serialport, ...)
+```
+docker build --force-rm -f Dockerfile.win64sm -t fffaraz/qt:win64sm .
+docker run --rm -it -v $(pwd):/app fffaraz/qt:win64sm
+cd /app
+qmake
+make -j $(nproc)
+```
