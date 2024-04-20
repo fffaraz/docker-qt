@@ -2,13 +2,21 @@ FROM fffaraz/qt:mxe
 
 RUN \
     cd /opt/mxe && \
+    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6 && \
     make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-conf && \
     make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtcharts && \
+    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtdeclarative && \
+    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qthttpserver && \
+    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtimageformats && \
+    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtmultimedia && \
+    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtscxml && \
+    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtserialport && \
+    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtservice && \
+    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtshadertools && \
     make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtsvg && \
     make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qttools && \
+    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qttranslations && \
     make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtwebsockets && \
-    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtserialport && \
-    make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtmultimedia && \
     make --jobs=$(nproc) JOBS=$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static' qt6-qtbase && \
     exit 0
 
